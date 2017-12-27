@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{url}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf}
+\usetikzlibrary{shapes,arrows,backgrounds,fit}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{mathptmx}
+\usepackage{anyfontsize}
+\usepackage{t1enc}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[list=true]{subcaption}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{placeins}
+\usepackage{indentfirst}
+\usepackage{sectsty}
+\usepackage{tocloft}
+\usepackage{chngcntr}
+
+
+\doublespacing
+
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+\pgfplotsset{compat=1.14}
+
+
+
+%Penalty for floats (images, tables..) to try and keep them within the chapter the are included in...Doesnt work well, use the float barrier instead, much better
+\widowpenalty 10000
+\clubpenalty10000
+
+%Margins as defined by URIs formatting
+\geometry{margin=1in,lmargin=1.5in,bottom=1in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                      %
+%                     Sets Various Sections on the Title Page                          %
+%                                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}                                  %
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}                            %
+\newenvironment{midpar}{\par\vspace*{\fill}}                                           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                      %
+%                     Sets the font size for subsections titles                        %
+%                                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\sectionfont{\fontsize{12}{12}\selectfont}                                             %
+\subsectionfont{\fontsize{12}{12}\selectfont}                                          %
+\subsubsectionfont{\fontsize{12}{12}\selectfont}                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                                      %
+%     create table of contents, list of figures, and list of tables....                %
+%                                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\contentsname}{\hfill\bfseries\normalsize TABLE OF CONTENTS\hfill}       %
+\renewcommand{\listtablename}{\hfill\bfseries\normalsize LIST OF TABLES\hfill}         %
+\renewcommand{\listfigurename}{\hfill\bfseries\normalsize LIST OF FIGURES\hfill}       %
+\renewcommand{\cftaftertoctitle}{\hfill}                                               %
+\renewcommand\refname{BIBLIOGRAPHY}                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%% Citation Controllers %%
+\newif\ifpaper
+\newif\ifIEEE
+
+
+%%%%%%%%%%         Choose between Print and Electronic copies            %%%%%%%%%%%%%%%      
+
+%\papertrue   % <-  UnComment for paper Version
+%\paperfalse   % <-  UnComment for Electronic Version
+
+
+
+%%%%%%%%%% When Switiching Between the two formats be sure to delete all %%%%%%%%%%%%%%%
+%%%%%%%%%%             compiled files from the thesis folder             %%%%%%%%%%%%%%%   
+                
+\IEEEtrue % <- UnComment to use IEEE Citation Format
+%\IEEEfalse % <- UnComment to use APA Citation Format 
+
+
+
+\ifIEEE
+	\usepackage{notoccite}
+\else
+	\usepackage{apacite}
+\fi
+
+
+\begin{document}
+
+%Call title
+\include{intropages/title}
+
+
+
+%Grab pdf files for thesis preamble, for electronic or paper
+\ifpaper
+	\includepdf[pages=-, offset=0 0]{intropages/library_rights_statement.pdf}
+	\includepdf[pages=1, offset=0 0]{intropages/sign_pages.pdf}
+\else
+	\includepdf[pages=2, offset=0 0]{intropages/sign_pages.pdf}
+\fi
+%-------------------------------------------------------------------------
+
+
+
+%Roman numeral numbering until chapter 1
+\pagenumbering{roman}
+
+%---------------------- Compile Intro Pages-------------------
+\include{intropages/abstract}
+\include{intropages/acknowledgements}
+
+\tableofcontents
+\addcontentsline{toc}{section}{TABLE OF CONTENTS}
+\listoftables
+\addcontentsline{toc}{section}{LIST OF TABLES}
+\listoffigures
+\addcontentsline{toc}{section}{LIST OF FIGURES}
+\newpage
+\include{intropages/abbreviations}
+
+%-----------------------------------------------------------
+
+\newpage
+% Numerical ordring for the rest of the thesis
+\pagenumbering{arabic}
+
+
+%-----------------Compile Chapter Files--------------------
+
+\include{chapter1/Chapter1}
+\include{chapter2/Chapter2}
+\include{chapter3/Chapter3}
+\include{chapter4/Chapter4}
+\include{chapter5/Chapter5}
+
+%---------------------------------------------------------
+
+
+%---------------------Bib/Appendix------------------------
+\include{appendix/Appendix}
+\addcontentsline{toc}{section}{BIBLIOGRAPHY}
+\ifIEEE
+	\bibliographystyle{IEEEtran}
+	\bibliography{IEEEabrv,ThesisBib}
+\else
+	\bibliographystyle{apacite}
+	\bibliography{ThesisBib}
+\fi
+
+%---------------------------------------------------------
+
+\end{document}
+
