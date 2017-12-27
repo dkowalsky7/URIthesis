@@ -44,6 +44,8 @@ URI formatting guidelines did not specify the appropriate indentation for these 
     
 ## Additional Notes
 
+As a suggestion, if you prefer to generate plots using the [`matplotlib`](https://matplotlib.org/) package for Python, consider following the guidelines from [this](http://bkanuka.com/articles/native-latex-plots/) blog post for generating plots in Python that look native to LaTeX.
+
 Please feel free to push commits to this repository to further advance the setup, as there is room for improvement. Consider, if your're interested, creating a style file to improve formatting and usability. 
 
 
