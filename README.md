@@ -1,4 +1,4 @@
-# URIthesis
+# URI Thesis
 
 This repository was created for easy setup of a thesis or Dissertation at the University of Rhode Island. However, this is not a style file, but rather a skeleton of `.tex` files and folders to easily write and format a thesis in LaTeX. URI has a style file which can be found [here](https://web.uri.edu/ecbe/thesisguide/step2/). The URI style file was not used in creating this setup as there are some issues within the URI style file, most likely due to limited maintenance.
 
