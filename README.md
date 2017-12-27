@@ -1,11 +1,11 @@
 # URIthesis
 
-This repository was setup for easy setup of a thesis or Dissertation at the university of Rhode Island. However, this is not a style file. URI has a style file which can be found [here](https://web.uri.edu/ecbe/thesisguide/step2/). The URI style file was not used in creating the files here as it there are some issues within the URI style file, as they have most likely not been maintained for some time.
+This repository was created for easy setup of a thesis or Dissertation at the University of Rhode Island. However, this is not a style file, but rather a skeleton of `.tex` files and folders to easily write and format a thesis in LaTeX. URI has a style file which can be found [here](https://web.uri.edu/ecbe/thesisguide/step2/). The URI style file was not used in creating this setup as there are some issues within the URI style file, most likely due to limited maintenance.
 
 
 ## Setup
 
-Comments within the `.tex` files will aid in generating personalized changes such as setting the citation format, paper/electronic versions, or adding additional chapters. For now, add these files with the download link above. However, a few notes to get going are outlined below.
+Comments within the `.tex` files will aid in generating personalized changes such as setting the citation format, paper/electronic versions, or adding additional chapters. However, a few notes to get going are outlined below.
 
 ### Adding New Chapters
 
@@ -21,7 +21,7 @@ The current format supports a five-chapter thesis. To add additional chapters, s
     % Add new chapter here
     %---------------------------------------------------------
 
-Within the new chapter `.tex` file, add the preamble seen below and update the `\setcounter{section}{#}` to the number of the new chapter file. 
+Within the new chapter `.tex` file, add the preamble seen below and update the `\setcounter{section}{#}` to the number of the new chapter. 
 
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,9 +37,9 @@ Within the new chapter `.tex` file, add the preamble seen below and update the `
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     
-### Comitte Signature Pages
+### Committee Signature Pages
     
-URI formatting guidelines did not specify the appropriate indentation for these pages. Because of this, these files were just generated with MS word and included as `.pdf` files. Simply open the word document within the `\intropages` folder and open the `sign_pages.doc` and change the name of or add the committee members accordingly. Save the file with the `.pdf` extension to the same folder. 
+URI formatting guidelines did not specify the appropriate indentation for these pages. Because of this, these files were just generated with MS word and included as `.pdf` files. Simply open the word document within the `\intropages` folder and open `sign_pages.doc` and change the name of or add the committee members accordingly. Save the file with the `.pdf` extension to the same folder. 
     
     
 ## Additional Notes
