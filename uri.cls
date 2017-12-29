@@ -2,21 +2,40 @@
 \ProvidesClass{uri}[2017/12/27 Thesis Format]
 
 \LoadClass[12pt]{article}
-  
 
-\RequirePackage{setspace}  
-\RequirePackage{geometry}
-\RequirePackage{indentfirst}
-\RequirePackage{pgffor,pgf}
-\RequirePackage{changepage}
-\RequirePackage{sectsty}
-\RequirePackage{tocloft}
-\RequirePackage{chngcntr}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages Necssary to Run this file %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{setspace}               
+\RequirePackage{geometry}               
+\RequirePackage{indentfirst}            
+\RequirePackage{pgffor,pgf}             
+\RequirePackage{changepage}             
+\RequirePackage{sectsty}                
+\RequirePackage{tocloft}                
+\RequirePackage{chngcntr}               
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Options to pass to the Document Class %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  
+%  Choose 1 (ms or phd)
+%  ms: (Default) produces the Masters Thesis setup 
+%  phd: produces the disseration setup
+%
+%  Choose 1 (digital or hardcopy)
+%  digitial: (Default) Produces library rights and electronic sign pages
+%  hardcopy: No library rights and signature page with signature lines
+% 
+%  Choose 1 (i3e or apa)
+%  i3e: (default) citations in ieee format
+%  apa: citations in apa format
 
 \newif\if@degree \@degreetrue
 \DeclareOption{phd}{\@degreefalse}
 \DeclareOption{ms}{\@degreetrue}
+
 
 \newif\if@paper \@paperfalse
 \DeclareOption{digital}{\@paperfalse}
@@ -35,8 +54,9 @@
 
 
 
-
-%%% Set File Formatting %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set formatting options Per Uri rules  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \geometry{margin=1in,lmargin=1.5in}
 \doublespacing
 
@@ -47,7 +67,7 @@
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \newcommand{\@hrule}{\rule{3in}{0.5pt}}
 
@@ -62,21 +82,13 @@
 \def\gradyear#1{\gdef\@gradyear{#1}}
 \def\committee{\gdef\@committee}
 
+
 \def\@work{
    \if@degree
        Thesis
    \else
        Dissertation
    \fi
-}
-
-\newcommand{\checkfor}[1]{%
-	\ifcsname#1\endcsname%
-		exe
-	\else%
-	executed
-	%	\pagenumbering{roman}
-	\fi%
 }
 
 
@@ -86,13 +98,10 @@
 
 \newenvironment{midparS}{\vspace*{\fill}}
 
-%\newenvironment{numerals}{\pagenumbering{roman}}
-%\newenvironment{numbers}{\pagenumbering{arabic}}
 
-
-%\newenvironment{\abstract}{begdef}{enddef}
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Creates the title page %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\titlepage{\thispagestyle{empty}
 	\pagestyle{empty}
@@ -119,6 +128,10 @@
     	\@gradyear
     \end{bottompar}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Creates signature pages %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\signpage{\thispagestyle{empty}
 	\begin{center}
@@ -166,6 +179,10 @@
 	\end{bottompar}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% Creates Abstract pages  %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\startabstract}{
 		\newpage
 		\clearpage
@@ -178,6 +195,10 @@
 		
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Creates acknowledgments pages %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\startacknowledgments}{%
 		\newpage
 		\begin{center}\section*{ACKNOWLEDGMENTS}\end{center}
@@ -185,6 +206,11 @@
 		\thispagestyle{plain}
 		\pagestyle{plain}	
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Creates table of contents   %%%%%%
+%%%%%% List of figures and Tables  %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\contents}{%
 	\newpage
@@ -196,6 +222,10 @@
 	\addcontentsline{toc}{section}{LIST OF FIGURES}
 	\newpage	
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Creates Chapter pages %%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\NewChapter}[2]{%
 	\newpage
@@ -211,6 +241,10 @@
 	\vspace{5mm}  
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Creates appendix pages %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\Appendix}{%
 	\newpage
 	\begin{center}\section*{APPENDIX}\end{center}
@@ -218,6 +252,10 @@
 	\thispagestyle{plain}
 	\pagestyle{plain}	
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Creates bibliography pages %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\startbib}[1]{%
 	\if@iTe
