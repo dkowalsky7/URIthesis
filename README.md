@@ -6,16 +6,16 @@ This repository was created for easy setup of a thesis or Dissertation at the Un
 
 Start by selecting optional parameters to determine overall fromat. These values passed directly to the `\documentclass{}`
 
- 1. Degree type
-    - ms = Masters
-    - phd = Doctorate
- 2. Paper type
-    - digitial = Electronic version
-    - hardcopy = Print version
- 3. Citation type
-    - i3e = IEEE
-    - apa = apa
     
+| Agrgument | Description                |
+|-----------|----------------------------|
+|     ms    | Generates a masters thesis |
+|    phd    | Generates a dissertation   |
+| digital   | Generates the digital copy of the manuscript |
+| hardcopy  | Generates the print friendly version |
+| i3e       | Citation formatting in ieee     |
+| apa       | Citation formatting in APA |
+
 To create a thesis that is a masters, wehre I want the digital copy, in IEEE format, the `\documentclass{}` would look as follows
 ```LaTeX
 \documentclass[ms,digital,i3e]{uri}
