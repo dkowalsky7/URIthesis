@@ -17,21 +17,23 @@ Start by selecting optional parameters to determine overall fromat. These values
     - apa = apa
     
 To create a thesis that is a masters, wehre I want the digital copy, in IEEE format, the `\documentclass{}` would look as follows
-
+```LaTeX
     \documentclass[ms,digital,i3e]{uri}
-
+```
 
 Initialize your manuscript in the `thesismain.tex` file, by setting the following paramets before `\begin{document}`
 
+```LaTeX
     \title{the title of your work goes here} %<- write name of thesis here
     \author{your name} %<- Your name here
     \program{systems engineering} %<- Your degree here
     \gradyear{2017} %<- Your graduation year here
     \committee{Major Professor,Member 1,Member 2,Nasser H. Zawia} %<- All committee members her (Comma seperated)
-
+```
 
 Within `\begin{document}` first call all of your intro pages (title,abstract,etc.), in the order specified by the URI writing guidelines.
 
+```LaTeX
     \titlepage % <- Signature pages
     \signpage % <- Signature pages
 
@@ -40,6 +42,7 @@ Within `\begin{document}` first call all of your intro pages (title,abstract,etc
     \include{intropages/abstract} <- call abstract.tex from file
     \include{intropages/acknowledgements} <- call acknowledgements.tex 
     \contents %<- generate table of contents
+```
 
 A new chapter can be created with the command `\NewChapter{#}{name}`, filling in `#` with the number of the chapter and `name` with the name of the chapter.
     
