@@ -34,8 +34,8 @@ Initialize your manuscript in the `thesismain.tex` file, by setting the followin
 Within `\begin{document}` first call all of your intro pages (title,abstract,etc.), in the order specified by the URI writing guidelines.
 
 ```LaTeX
-\titlepage % <- Signature pages
-\signpage % <- Signature pages
+\titlepage % <- create Title page
+\signpage % <- create Signature pages
 
 \pagenumbering{roman} %<- set page numbering to roman numerals
 
