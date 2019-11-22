@@ -7,7 +7,7 @@ This repository was created for easy setup of a thesis or Dissertation at the Un
 Start by selecting optional parameters to determine overall fromat. These values passed directly to the `\documentclass{}`
 
     
-| Agrgument | Description                |
+| Argument  | Description                |
 |-----------|----------------------------|
 |     ms    | Generates a masters thesis |
 |    phd    | Generates a dissertation   |
