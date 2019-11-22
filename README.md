@@ -48,7 +48,7 @@ A new chapter can be created with the command `\NewChapter{#}{name}`, filling in
     
 ## Additional Notes
 
-As a suggestion, if you prefer to generate plots using the [`matplotlib`](https://matplotlib.org/) package for Python, consider following the guidelines from [this](http://bkanuka.com/articles/native-latex-plots/) blog post for generating plots in Python that look native to LaTeX.
+As a suggestion, if you prefer to generate plots using the [`matplotlib`](https://matplotlib.org/) package for Python, consider following the guidelines from [this](http://bkanuka.com/posts/native-latex-plots/) blog post for generating plots in Python that look native to LaTeX.
 
 Please feel free to push commits to this repository to further advance the setup, as there is room for improvement. Consider, adding to the `uri.cls` file to imoprve usability. 
 
